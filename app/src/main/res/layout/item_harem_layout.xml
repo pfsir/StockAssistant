@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.xy.jepackdemo.bean.StockBean.DataBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.stockName}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="@string/stock_name" />
+
+            <TextView
+                android:id="@+id/item_pe"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.pe_ttm}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="@string/stock_pe" />
+
+            <TextView
+                android:id="@+id/item_pessimistic"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@{bean.pe_ttm_pessimistic}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="@string/stock_pessimistic" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@color/color_333333" />
+
+            <TextView
+                android:id="@+id/item_neutral"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@{bean.pe_ttm_neutral}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="@string/stock_neutral" />
+
+
+            <TextView
+                android:id="@+id/item_N"
+                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.stockN}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="@string/stock_N" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/color_DFDFDF" />
+    </LinearLayout>
+</layout>

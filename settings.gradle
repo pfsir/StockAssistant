@@ -1,0 +1,3 @@
+rootProject.name='jepackDemo'
+include ':app'
+include ':baselib'

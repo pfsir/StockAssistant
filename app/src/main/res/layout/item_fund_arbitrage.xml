@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.xy.jepackdemo.bean.FundLofBean.RowsBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_fund_nm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@{bean.cell.fund_nm}"
+                    android:textColor="@color/color_333333"
+                    android:textSize="12sp"
+                    tools:text="富国天慧" />
+
+                <TextView
+                    android:id="@+id/item_fund_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@{bean.cell.fund_id}"
+                    android:textColor="@color/color_666666"
+                    android:textSize="11sp"
+                    tools:text="164906" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.cell.price}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="0.9999" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.cell.increase_rt}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="0.9%"
+                />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.cell.fund_nav}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="0.9988" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.cell.discount_rt}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="0.47%" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_DFDFDF" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.xy.jepackdemo.bean.RecentBondBean.RowsBean.CellBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.bond_nm}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="@string/bond_name" />
+
+            <TextView
+                android:id="@+id/item_level"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.rating_cd}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="@string/bond_level" />
+
+            <TextView
+                android:id="@+id/item_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@{bean.progress_nm}"
+                android:textColor="@color/color_333333"
+                android:textSize="12sp"
+                tools:text="@string/bond_status" />
+
+            <TextView
+                android:id="@+id/item_es_price"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.pma_rt}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="@string/bond_change_price" />
+
+            <TextView
+                android:id="@+id/item_lucky_draw_rt"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.lucky_draw_rt}"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                tools:text="@string/bond_lucky" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/color_DFDFDF" />
+    </LinearLayout>
+</layout>

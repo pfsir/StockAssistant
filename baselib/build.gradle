@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    //签名文件配置
+    signingConfigs {
+        release {
+            storeFile file("..\\key\\brand.jks")
+            storePassword '123456'
+            keyAlias 'brand'
+            keyPassword '123456'
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //启用DataBinding
+    dataBinding {
+        enabled true
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    api 'android.arch.lifecycle:extensions:1.1.1'
+    //retrofit2
+    api 'com.squareup.retrofit2:retrofit:2.6.1'
+    api 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    api 'com.squareup.retrofit2:converter-gson:2.6.1'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.6.1'
+    //rxjava2
+    api 'io.reactivex.rxjava2:rxjava:2.2.14'
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    //okhttp
+    api 'com.squareup.okhttp3:okhttp:3.12.0'
+    api "com.squareup.okhttp3:logging-interceptor:3.12.0"
+
+    //下拉刷新
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
+    //recyclerview
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+    //viewpager2
+    api 'androidx.viewpager2:viewpager2:1.0.0'
+    //tablayout
+    api "com.google.android.material:material:1.1.0"
+}

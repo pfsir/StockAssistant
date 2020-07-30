@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.xy.jepackdemo.bean.HkIpoBean.RowsBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:minWidth="120dp"
+                android:text="@{bean.cell.stock_nm}"
+                android:textColor="@color/color_333333"
+                android:textSize="11sp" />
+
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.cell.market}"
+                android:textColor="@color/color_333333"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{bean.cell.issue_price}"
+                android:textColor="@color/color_333333"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/hk_apply_date"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_B2B2B2"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/hk_list_date"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_333333"
+                android:textSize="11sp" />
+
+
+            <TextView
+                android:id="@+id/hk_advise_text"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_333333"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/color_DFDFDF" />
+    </LinearLayout>
+</layout>

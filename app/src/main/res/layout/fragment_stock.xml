@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.xy.jepackdemo.ui.stock.StockFragment" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/colorPrimary">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/stock_tab"
+                android:layout_width="200dp"
+                android:layout_centerInParent="true"
+                app:tabIndicatorHeight="0dp"
+                app:tabPadding="0dp"
+                android:padding="0dp"
+                app:tabPaddingBottom="0dp"
+                app:tabPaddingEnd="0dp"
+                app:tabPaddingStart="0dp"
+                app:tabPaddingTop="0dp"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabTextColor="@color/color_FFFFFF"
+                android:layout_height="30dp"/>
+
+            <ImageView
+                android:id="@+id/iv_setting"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/button_background"
+                android:paddingStart="10dp"
+                android:paddingEnd="15dp"
+                android:src="@drawable/setting" />
+
+        </RelativeLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/stock_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</layout>
