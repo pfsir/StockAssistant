@@ -2,6 +2,8 @@
 股票/基金/债券相关信息的协助应用。
 
 开发原因主要是不想装太多app，比如集思录，蛋卷之类的，把他们部分数据集合到这个App上；同时也想用jetpack相关组件练练手。
+lib类代码来自https://github.com/KunMinX/Jetpack-MVVM-Best-Practice。
+
 注：此App中不构成任何投资建议。
 
 债券部分：（数据来自集思录）
