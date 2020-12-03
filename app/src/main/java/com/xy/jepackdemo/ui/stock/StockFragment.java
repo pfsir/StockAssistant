@@ -53,9 +53,9 @@ public class StockFragment extends BaseNoModelFragment<FragmentStockBinding> {
             @Override
             public Fragment createFragment(int position) {
                 if (position == 0) {
-                    return new HkStockFragment();
+                    return new HaremFragment();
                 }
-                return new HaremFragment();
+                return new HkStockFragment();
             }
 
             @Override
@@ -93,11 +93,11 @@ public class StockFragment extends BaseNoModelFragment<FragmentStockBinding> {
         //这里需要根据position修改tab的样式和文字等
         TabLayout.Tab tab1 = dataBinding.stockTab.getTabAt(0);
         if (tab1 != null) {
-            tab1.setCustomView(getTabView0());
+            tab1.setCustomView(getTabView1());
         }
         TabLayout.Tab tab2 = dataBinding.stockTab.getTabAt(1);
         if (tab2 != null) {
-            tab2.setCustomView(getTabView1());
+            tab2.setCustomView(getTabView2());
         }
 
         dataBinding.ivSetting.setOnClickListener(new View.OnClickListener() {
@@ -114,19 +114,21 @@ public class StockFragment extends BaseNoModelFragment<FragmentStockBinding> {
 
     }
 
-    private View getTabView0() {
+    private View getTabView1() {
         LayoutInflater mInflater = LayoutInflater.from(getContext());
         View view = mInflater.inflate(R.layout.item_tab_left, null);
         tv1 = view.findViewById(R.id.tab_text_left);
-        tv1.setText("港股");
+        tv1.setText("精选");
         return view;
     }
 
-    private View getTabView1() {
+    private View getTabView2() {
         LayoutInflater mInflater = LayoutInflater.from(getContext());
         View view = mInflater.inflate(R.layout.item_tab_right, null);
         tv2 = view.findViewById(R.id.tab_text_right);
-        tv2.setText("后宫");
+        tv2.setText("港股");
         return view;
     }
+
+
 }
