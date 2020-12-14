@@ -1,6 +1,7 @@
 package com.xy.jepackdemo.adapter;
 
 import android.text.TextPaint;
+import android.text.TextUtils;
 
 import androidx.core.content.ContextCompat;
 
@@ -27,10 +28,29 @@ public class HKStockAdapter extends BaseDBRVAdapter<HkIpoBean.RowsBean, ItemHkSt
         super.onBindViewHolder(dataBean, binding, position);
         HkIpoBean.RowsBean.CellBean cell = dataBean.getCell();
         String applyDate = cell.getApply_dt().substring(0, 5) + "~" + cell.getApply_end_dt().substring(0, 5);
-        String advise = cell.getJsl_advise_text().startsWith("<") ? "-" : cell.getJsl_advise_text();
-        binding.hkAdviseText.setText(advise);
         binding.hkApplyDate.setText(applyDate);
-        binding.hkListDate.setText(cell.getList_dt().substring(0, 5));
+
+        if (!TextUtils.isEmpty(cell.getLucky_draw_rt())) {
+            //一手中签率
+            String luckyRt = cell.getLucky_draw_rt() + "%";
+            if (cell.getLucky_draw_rt().endsWith(".00")) {
+                luckyRt = cell.getLucky_draw_rt().substring(0, cell.getLucky_draw_rt().length() - 3) + "%";
+            }
+            binding.hkLuckyDrawRt.setText(luckyRt);
+        }else {
+            binding.hkLuckyDrawRt.setText("-");
+        }
+        if (!TextUtils.isEmpty(cell.getFirst_incr_rt())) {
+            //首日涨幅
+            String incrRt = cell.getFirst_incr_rt() + "%";
+            if (cell.getFirst_incr_rt().endsWith(".00")) {
+                incrRt = cell.getFirst_incr_rt().substring(0, cell.getFirst_incr_rt().length() - 3) + "%";
+            }
+            binding.hkIncrRtText.setText(incrRt);
+        }else {
+            binding.hkIncrRtText.setText("-");
+        }
+
         try {
             String startDate = (DateUtil.getInstance().longToDate(System.currentTimeMillis(), "yyyy-MM-dd").getYear() + 1900) + "-" + cell.getApply_dt().substring(0, 5);
             String endDate = (DateUtil.getInstance().longToDate(System.currentTimeMillis(), "yyyy-MM-dd").getYear() + 1900) + "-" + cell.getApply_end_dt().substring(0, 5);
@@ -43,17 +63,6 @@ public class HKStockAdapter extends BaseDBRVAdapter<HkIpoBean.RowsBean, ItemHkSt
             } else {
                 binding.hkApplyDate.setTextColor(ContextCompat.getColor(context, R.color.color_B2B2B2));
                 TextPaint tp = binding.hkApplyDate.getPaint();
-                tp.setFakeBoldText(false);
-            }
-            String listDate = (DateUtil.getInstance().longToDate(System.currentTimeMillis(), "yyyy-MM-dd").getYear() + 1900) + "-" + cell.getList_dt().substring(0, 5);
-            String currentDate = DateUtil.getInstance().longToString(System.currentTimeMillis(), "yyyy-MM-dd");
-            if (currentDate.equals(listDate)) {
-                binding.hkListDate.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
-                TextPaint tp = binding.hkListDate.getPaint();
-                tp.setFakeBoldText(true);
-            } else {
-                binding.hkListDate.setTextColor(ContextCompat.getColor(context, R.color.color_B2B2B2));
-                TextPaint tp = binding.hkListDate.getPaint();
                 tp.setFakeBoldText(false);
             }
         } catch (Exception e) {

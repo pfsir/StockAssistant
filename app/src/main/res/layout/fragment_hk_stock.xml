@@ -47,26 +47,10 @@
                             android:textSize="10sp" />
 
                         <TextView
-                            android:layout_width="40dp"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/hk_plate"
-                            android:textColor="@color/color_333333"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:layout_width="45dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/hk_issue_price"
-                            android:textColor="@color/color_333333"
-                            android:textSize="10sp" />
-
-                        <TextView
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/hk_apply_date"
+                            android:text="@string/hk_only_money"
                             android:textColor="@color/color_333333"
                             android:textSize="10sp" />
 
@@ -74,15 +58,24 @@
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/hk_list_date"
+                            android:text="@string/hk_getting"
                             android:textColor="@color/color_333333"
                             android:textSize="10sp" />
 
                         <TextView
-                            android:layout_width="55dp"
+                            android:layout_width="80dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/hk_suggest"
+                            android:text="@string/hk_apply_date"
+                            android:textColor="@color/color_333333"
+                            android:textSize="10sp" />
+
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/hk_first_raise"
                             android:textColor="@color/color_333333"
                             android:textSize="10sp" />
 

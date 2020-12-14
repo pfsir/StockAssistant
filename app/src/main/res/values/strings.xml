@@ -81,10 +81,13 @@
 
 
     <string name="hk_company_name">公司名称</string>
-    <string name="hk_apply_date">申请日期</string>
+    <string name="hk_apply_date">申购日期</string>
     <string name="hk_list_date">上市日期</string>
     <string name="hk_plate">板块</string>
     <string name="hk_suggest">申购建议</string>
+    <string name="hk_only_money">一手资金</string>
+    <string name="hk_getting">中签率</string>
+    <string name="hk_first_raise">首日涨幅</string>
     <string name="hk_issue_price">发行价</string>
 
 </resources>
