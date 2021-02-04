@@ -93,49 +93,31 @@ public class MainActivity extends BaseNoModelActivity<ActivityMainBinding> imple
      * 改变底部控件
      */
     public void changBottom(int position) {
+        dataBinding.mainBoneText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
+        dataBinding.mainStockText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
+        dataBinding.mainFundText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
+        dataBinding.mainStrategyText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
+
+        dataBinding.mainBoneImg.setImageResource(R.drawable.bond_un_select);
+        dataBinding.mainStockImg.setImageResource(R.drawable.stock_un_select);
+        dataBinding.mainFundImg.setImageResource(R.drawable.fund_un_select);
+        dataBinding.mainStrategyImg.setImageResource(R.drawable.strategy_un_select);
+
         switch (position) {
             case 0:
                 dataBinding.mainBoneImg.setImageResource(R.drawable.bond);
-                dataBinding.mainStockImg.setImageResource(R.drawable.stock_un_select);
-                dataBinding.mainFundImg.setImageResource(R.drawable.fund_un_select);
-                dataBinding.mainStrategyImg.setImageResource(R.drawable.strategy_un_select);
-
                 dataBinding.mainBoneText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
-                dataBinding.mainStockText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
-                dataBinding.mainFundText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
-                dataBinding.mainStrategyText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
                 break;
             case 1:
-                dataBinding.mainBoneImg.setImageResource(R.drawable.bond_un_select);
                 dataBinding.mainStockImg.setImageResource(R.drawable.stock);
-                dataBinding.mainFundImg.setImageResource(R.drawable.fund_un_select);
-                dataBinding.mainStrategyImg.setImageResource(R.drawable.strategy_un_select);
-
-                dataBinding.mainBoneText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
                 dataBinding.mainStockText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
-                dataBinding.mainFundText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
-                dataBinding.mainStrategyText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
                 break;
             case 2:
-                dataBinding.mainBoneImg.setImageResource(R.drawable.bond_un_select);
-                dataBinding.mainStockImg.setImageResource(R.drawable.stock_un_select);
                 dataBinding.mainFundImg.setImageResource(R.drawable.fund);
-                dataBinding.mainStrategyImg.setImageResource(R.drawable.strategy_un_select);
-
-                dataBinding.mainBoneText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
-                dataBinding.mainStockText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
                 dataBinding.mainFundText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
-                dataBinding.mainStrategyText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
                 break;
             case 3:
-                dataBinding.mainBoneImg.setImageResource(R.drawable.bond_un_select);
-                dataBinding.mainStockImg.setImageResource(R.drawable.stock_un_select);
-                dataBinding.mainFundImg.setImageResource(R.drawable.fund_un_select);
                 dataBinding.mainStrategyImg.setImageResource(R.drawable.strategy);
-
-                dataBinding.mainBoneText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
-                dataBinding.mainStockText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
-                dataBinding.mainFundText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
                 dataBinding.mainStrategyText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
                 break;
             default:
@@ -145,25 +127,21 @@ public class MainActivity extends BaseNoModelActivity<ActivityMainBinding> imple
 
     @Override
     public void onClick(View view) {
+        int position = 0;
         switch (view.getId()){
-            case R.id.main_bone_layout:
-                showFragment(0);
-                changBottom(0);
-                break;
             case R.id.main_stock_layout:
-                showFragment(1);
-                changBottom(1);
+                position = 1;
                 break;
             case R.id.main_fund_layout:
-                showFragment(2);
-                changBottom(2);
+                position = 2;
                 break;
             case R.id.main_strategy_layout:
-                showFragment(3);
-                changBottom(3);
+                position = 3;
                 break;
             default:
                 break;
         }
+        showFragment(position);
+        changBottom(position);
     }
 }
