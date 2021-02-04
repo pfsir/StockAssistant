@@ -71,6 +71,9 @@
     <string name="fund_buy">买入</string>
     <string name="fund_money">金额</string>
     <string name="fund_per">配比</string>
+    <string name="fund_name_detail">基金名称</string>
+    <string name="fund_percent">持仓占比</string>
+    <string name="fund_rate">收益率</string>
 
     <string name="fund_name">名称/代码</string>
     <string name="fund_price">现价</string>

@@ -20,7 +20,7 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/bond_tab"
-                android:layout_width="200dp"
+                android:layout_width="250dp"
                 android:layout_centerInParent="true"
                 app:tabIndicatorHeight="0dp"
                 app:tabPadding="0dp"

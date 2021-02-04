@@ -56,9 +56,13 @@ public class ApiUrl {
     public static final String GET_LXR_INSURANCE_STOCK_INFO = "api/a/stock/fundamental/insurance";
 
     /**
-     * 获取螺丝钉定投数据
+     * 获取螺丝钉定投历史数据
      */
     public static final String GET_DJ_FUND_INFO = "djapi/plan/CSI666/trade_history";
 
-
+    /**
+     * 详情
+     */
+    public static final String GET_DJ_FUND_DETAIL = "djapi/plan/position/detail";
 }
+

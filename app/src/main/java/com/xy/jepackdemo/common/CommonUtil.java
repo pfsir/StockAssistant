@@ -21,6 +21,14 @@ public class CommonUtil {
     public static final String TOKEN = "bec7f9e6-9a60-43c2-9d6c-5ae9ea69ec4b";
     private static List<StockBean.DataBean> stockBeans;
 
+    public static final String FUND_TYPE = "fundType";
+
+    public static final int EXPONENT = 0;
+
+    public static final int INITIATIVE = 1;
+
+    public static final int D365 = 2;
+
     public static void init() {
         stockBeans = new ArrayList<>();
         //保守,中性，增长率，股票代码

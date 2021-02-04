@@ -8,8 +8,6 @@ import com.xy.jepackdemo.http.AbstractSubscriber;
 import com.xy.jepackdemo.http.HttpClient;
 import com.xy.jepackdemo.http.RxUtil;
 
-import java.util.List;
-
 
 public class ValuationFundViewModel extends BaseViewModel {
 
@@ -33,7 +31,6 @@ public class ValuationFundViewModel extends BaseViewModel {
         if (show) {
             showDialog.setValue(true, "加载中");
         }
-        //进攻表 溢价率<20%，价格小于110元，评级至少为AA，上市满足半年
         addDisposable(HttpClient.Builder.getDJService()
                 .getDjFundInfo("1", "1")
                 .compose(RxUtil.<FundValuationBean>rxSchedulerHelper())

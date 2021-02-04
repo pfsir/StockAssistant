@@ -1,6 +1,7 @@
 package com.xy.jepackdemo.http;
 
 import com.xy.jepackdemo.bean.FilterBondBean;
+import com.xy.jepackdemo.bean.FundDetailBean;
 import com.xy.jepackdemo.bean.FundLofBean;
 import com.xy.jepackdemo.bean.FundValuationBean;
 import com.xy.jepackdemo.bean.HkIpoBean;
@@ -116,14 +117,23 @@ public interface HttpClient {
     @POST(ApiUrl.GET_LXR_INSURANCE_STOCK_INFO)
     Flowable<StockBean> getLxrInsuranceStockInfo(@Body RequestBody route);
 
-    /**
-     * 获取基金估值
+       /**
+     * 获取指数基金估值
      *
      * @return
      * @source lsd
      */
     @GET(ApiUrl.GET_DJ_FUND_INFO)
     Flowable<FundValuationBean> getDjFundInfo(@Query("size") String size,@Query("page") String page);
+
+    /**
+     * 基金详情
+     *
+     * @return
+     * @source lsd
+     */
+    @GET(ApiUrl.GET_DJ_FUND_DETAIL)
+    Flowable<FundDetailBean> getDjFundDetail(@Query("plan_code") String plan_code);
 
     /**
      * 获取Lof基金溢价率
