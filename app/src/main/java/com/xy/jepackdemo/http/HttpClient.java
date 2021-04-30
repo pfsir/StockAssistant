@@ -1,5 +1,7 @@
 package com.xy.jepackdemo.http;
 
+import com.xy.jepackdemo.bean.BtcPriceBean;
+import com.xy.jepackdemo.bean.FgiBean;
 import com.xy.jepackdemo.bean.FilterBondBean;
 import com.xy.jepackdemo.bean.FundDetailBean;
 import com.xy.jepackdemo.bean.FundLofBean;
@@ -41,6 +43,10 @@ public interface HttpClient {
 
         public static HttpClient getDJService() {
             return Api.getRetrofitApi(ApiUrl.DJ_BASE_URL, HttpClient.class);
+        }
+
+        public static HttpClient getBtcService() {
+            return Api.getRetrofitApi(ApiUrl.BTC_BASE_URL, HttpClient.class);
         }
     }
 
@@ -147,5 +153,13 @@ public interface HttpClient {
     Flowable<FundLofBean> getJslLofFund(@Query("___jsl=LST___t") long time,
                                         @Query("rp") int rp,
                                         @Query("page") int page);
+
+    @GET(ApiUrl.GET_BTC_PRICE)
+    Flowable<BtcPriceBean> getBtcData(@Query("symbol") String symbol,
+                                      @Query("start") String startTime,
+                                      @Query("end") String endTime);
+
+    @GET(ApiUrl.GET_BTC_FGI)
+    Flowable<FgiBean> getFgiData();
 }
 

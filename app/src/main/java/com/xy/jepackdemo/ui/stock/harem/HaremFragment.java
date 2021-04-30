@@ -73,6 +73,6 @@ public class HaremFragment extends BaseLazyFragment<HaremViewModel, FragmentHare
 
     @Override
     protected void showError(Object obj) {
-
+        dataBinding.refreshLayout.finishRefresh();
     }
 }

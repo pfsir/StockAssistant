@@ -1,43 +1,16 @@
 <resources>
     <string name="app_name">金手指</string>
-    <string name="new_bond_title">可转债打新</string>
-    <string name="table_bond_title">可转债精选表</string>
-    <string name="strategy_title">投资策略</string>
-    <string name="info">预填信息</string>
-    <string name="strategy">推荐策略</string>
+    <string name="BTC">BTC</string>
     <string name="main_bone">债券</string>
     <string name="main_stock">股票</string>
     <string name="main_fund">基金</string>
-    <string name="main_strategy">策略</string>
-    <string name="main_choice_stock">后宫团</string>
+    <string name="main_btc">BTC</string>
 
-    <string name="recommend">也大说</string>
     <string name="setting">其他</string>
-    <string name="common_yes">是</string>
-    <string name="common_no">否</string>
-    <string name="common_all">均可</string>
-    <string name="common_done">确定</string>
-
-    <string name="topic_one">1.预计投资年限？</string>
-    <string name="topic_one_a">0.5年以下</string>
-    <string name="topic_one_b">0.5–3年</string>
-    <string name="topic_one_c">3年以上</string>
-    <string name="topic_two">2.资金有明确使用目的？</string>
-    <string name="topic_three">3.投资风格偏保守？</string>
-    <string name="topic_four">4.资金类型？</string>
-    <string name="topic_four_a">增量资金</string>
-    <string name="topic_four_b">存量资金</string>
-    <string name="topic_four_c">增量+存量</string>
 
     <string name="setting_version">当前版本：</string>
     <string name="setting_author">欢迎撩作者：ouyaanng（微信）</string>
-    <string name="setting_add">加入知识星球：</string>
     <string name="copy">复制</string>
-
-    <string name="today_do">今日操作</string>
-    <string name="table">可购</string>
-    <string name="new_bond">打新：</string>
-    <string name="bond_listing">上市：</string>
 
 
     <string name="bond_name">债券名称</string>
@@ -45,25 +18,16 @@
     <string name="bond_status">方案进展</string>
     <string name="bond_change_price">转股</string>
     <string name="bond_lucky">中签率</string>
-    <string name="bond_es_price">预估价</string>
     <string name="bond_price">价格</string>
     <string name="bond_premium_rate">溢价率</string>
     <string name="bond_yield_to_maturity">到期收益</string>
-
-    <string name="today_sold">今日可卖</string>
-    <string name="attack_bond">进攻转债</string>
-    <string name="defense_bond">防御转债</string>
 
 
     <string name="stock_name">股票名称</string>
     <string name="stock_pe">PE/PB/PEV</string>
     <string name="stock_pessimistic">悲观</string>
     <string name="stock_neutral">中性</string>
-    <string name="stock_growth_rate">增速</string>
-    <string name="stock_dyr">股息率</string>
     <string name="stock_N">N</string>
-    <string name="stock_buy_in">买入</string>
-    <string name="stock_buy_out">卖出</string>
 
     <string name="fund_refresh_date">更新日期：</string>
     <string name="fund_buy_money">买入金额(示例)：</string>
@@ -77,7 +41,6 @@
 
     <string name="fund_name">名称/代码</string>
     <string name="fund_price">现价</string>
-    <string name="fund_increase">涨幅</string>
     <string name="fund_nav">基金净值</string>
     <string name="fund_discount">溢价率</string>
 
@@ -85,12 +48,10 @@
 
     <string name="hk_company_name">公司名称</string>
     <string name="hk_apply_date">申购日期</string>
-    <string name="hk_list_date">上市日期</string>
-    <string name="hk_plate">板块</string>
-    <string name="hk_suggest">申购建议</string>
     <string name="hk_only_money">一手资金</string>
     <string name="hk_getting">中签率</string>
     <string name="hk_first_raise">首日涨幅</string>
-    <string name="hk_issue_price">发行价</string>
+
+    <string name="btc_fgi">近30天BTC价格/FGI（恐慌贪婪指数）</string>
 
 </resources>

@@ -29,7 +29,7 @@ public class HaremAdapter extends BaseDBRVAdapter<StockBean.DataBean, ItemHaremL
         double pessimisticN = Double.parseDouble(dataBean.getPessimisticN());
 
         if (pessimisticN > 15) {
-            binding.itemN.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+            binding.itemN.setTextColor(ContextCompat.getColor(context, R.color.color_EB3323));
         }
     }
 }

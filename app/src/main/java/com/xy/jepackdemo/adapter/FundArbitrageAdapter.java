@@ -27,7 +27,7 @@ public class FundArbitrageAdapter extends BaseDBRVAdapter<FundLofBean.RowsBean, 
         switch (position){
             case 0:
             case 1:
-                binding.itemFundNm.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+                binding.itemFundNm.setTextColor(ContextCompat.getColor(context, R.color.color_EB3323));
                 binding.itemFundId.setTextColor(ContextCompat.getColor(context, R.color.color_F29089));
                 break;
             default:

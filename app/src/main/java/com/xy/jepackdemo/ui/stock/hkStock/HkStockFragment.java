@@ -76,6 +76,6 @@ public class HkStockFragment extends BaseLazyFragment<HkStockViewModel, Fragment
 
     @Override
     protected void showError(Object obj) {
-
+        dataBinding.refreshLayout.finishRefresh();
     }
 }

@@ -83,6 +83,6 @@ public class ChoiceBondFragment extends BaseLazyFragment<ChoiceViewModel, Fragme
 
     @Override
     protected void showError(Object obj) {
-
+        dataBinding.refreshLayout.finishRefresh();
     }
 }

@@ -29,7 +29,7 @@ public class NewBondAdapter extends BaseDBRVAdapter<RecentBondBean.RowsBean.Cell
         switch (cellBean.getAp_flag()) {
             case "A":
             case "D":
-                binding.itemStatus.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+                binding.itemStatus.setTextColor(ContextCompat.getColor(context, R.color.color_EB3323));
                 paint.setFakeBoldText(true);
                 break;
             case "C":

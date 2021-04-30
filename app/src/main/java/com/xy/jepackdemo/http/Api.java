@@ -41,7 +41,6 @@ public class Api {
 
             @Override
             public void log(String message) {
-                //1.考勤的接口不打印
                 if ((message.startsWith("--> GET") || message.startsWith("--> POST"))) {
                     LogUtil.v(TAG, message);
                 }
@@ -49,7 +48,7 @@ public class Api {
                     LogUtil.v(TAG, message);
                 }
                 // 2.以{}或者[]形式的说明是响应结果的json数据(1024个字符以内)
-                int maxLength = 2 * 1024;
+                int maxLength = 4 * 1024;
                 boolean isJson = (message.startsWith("{") && message.endsWith("}")) || (message.startsWith("[") && message.endsWith("]"));
                 if (isJson && message.length() <= maxLength) {
                     LogUtil.v(TAG, message);

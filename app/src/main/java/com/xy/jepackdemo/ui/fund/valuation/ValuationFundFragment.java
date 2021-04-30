@@ -82,6 +82,6 @@ public class ValuationFundFragment extends BaseLazyFragment<ValuationFundViewMod
 
     @Override
     protected void showError(Object obj) {
-
+        dataBinding.refreshLayout.finishRefresh();
     }
 }

@@ -27,6 +27,11 @@ public class ApiUrl {
     public static final String DJ_BASE_URL = "https://danjuanfunds.com/";
 
     /**
+     * BTC
+     */
+    public static final String BTC_BASE_URL = " https://history.btc126.com/";
+
+    /**
      * 当前新债
      */
     public static final String GET_JSL_RECENT_BOND = "data/cbnew/pre_list/";
@@ -48,12 +53,12 @@ public class ApiUrl {
     /**
      * 获取股票基本面数据
      */
-    public static final String GET_LXR_STOCK_INFO = "api/a/stock/fundamental/non_financial";
+    public static final String GET_LXR_STOCK_INFO = "api/a/company/fundamental/non_financial";
 
     /**
      * 获取保险行业股票基本面数据
      */
-    public static final String GET_LXR_INSURANCE_STOCK_INFO = "api/a/stock/fundamental/insurance";
+    public static final String GET_LXR_INSURANCE_STOCK_INFO = "api/a/company/fundamental/insurance";
 
     /**
      * 获取螺丝钉定投历史数据
@@ -64,5 +69,19 @@ public class ApiUrl {
      * 详情
      */
     public static final String GET_DJ_FUND_DETAIL = "djapi/plan/position/detail";
+
+
+    /**
+     * btc价格
+     */
+    public static final String GET_BTC_PRICE = "api.php";
+
+
+    /**
+     * fgi指数
+     */
+    public static final String GET_BTC_FGI = "zhishu/api.php";
+
+
 }
 

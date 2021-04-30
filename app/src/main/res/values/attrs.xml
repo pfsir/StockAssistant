@@ -10,5 +10,10 @@
         <attr name="indicatorColor" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="ChartsLineView">
+        <attr name="contentTextSize" format="dimension" />
+        <attr name="lineColor" format="color" />
+        <attr name="contentColor" format="color" />
+    </declare-styleable>
 
 </resources>

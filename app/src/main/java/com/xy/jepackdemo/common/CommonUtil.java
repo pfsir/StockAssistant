@@ -135,4 +135,24 @@ public class CommonUtil {
             return "0.0";
         }
     }
+
+    public static long calculateMax(Long[] temp) {
+        long max = temp[0];
+        for (int i = 1; i < temp.length; i++) {
+            if (temp[i] > max) {
+                max = temp[i];
+            }
+        }
+        return max;
+    }
+
+    public static Long calculateMin(Long[] temp) {
+        long min = temp[0];
+        for (int i = 1; i < temp.length; i++) {
+            if (temp[i] < min) {
+                min = temp[i];
+            }
+        }
+        return min;
+    }
 }

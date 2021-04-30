@@ -1,8 +1,5 @@
 package com.xy.jepackdemo.ui.bond.newbond;
 
-import android.content.Intent;
-import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -16,7 +13,6 @@ import com.xy.jepackdemo.R;
 import com.xy.jepackdemo.adapter.NewBondAdapter;
 import com.xy.jepackdemo.bean.RecentBondBean;
 import com.xy.jepackdemo.databinding.FragmentNewBondBinding;
-import com.xy.jepackdemo.ui.SettingActivity;
 
 import java.util.List;
 
@@ -82,6 +78,6 @@ public class NewBondFragment extends BaseFragment<NewBondViewModel, FragmentNewB
 
     @Override
     protected void showError(Object obj) {
-
+        dataBinding.refreshLayout.finishRefresh();
     }
 }

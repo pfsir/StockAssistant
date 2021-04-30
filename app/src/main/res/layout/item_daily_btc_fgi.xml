@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.xy.jepackdemo.ui.view.ChartsLineView
+        android:id="@+id/charts_view"
+        android:layout_width="22dp"
+        android:layout_height="250dp" />
+</FrameLayout>

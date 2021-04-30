@@ -79,6 +79,6 @@ public class ArbitrageFundFragment extends BaseLazyFragment<ArbitrageFundViewMod
 
     @Override
     protected void showError(Object obj) {
-
+        dataBinding.refreshLayout.finishRefresh();
     }
 }

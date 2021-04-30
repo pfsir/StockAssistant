@@ -57,7 +57,7 @@ public class HKStockAdapter extends BaseDBRVAdapter<HkIpoBean.RowsBean, ItemHkSt
             long startTime = DateUtil.getInstance().stringToLong(startDate, "yyyy-MM-dd");
             long endTime = DateUtil.getInstance().stringToLong(endDate, "yyyy-MM-dd") + 24 * 60 * 60 * 1000;
             if (System.currentTimeMillis() > startTime && System.currentTimeMillis() < endTime) {
-                binding.hkApplyDate.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+                binding.hkApplyDate.setTextColor(ContextCompat.getColor(context, R.color.color_EB3323));
                 TextPaint tp = binding.hkApplyDate.getPaint();
                 tp.setFakeBoldText(true);
             } else {

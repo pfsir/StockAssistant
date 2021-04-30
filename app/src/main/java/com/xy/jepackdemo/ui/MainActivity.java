@@ -12,9 +12,9 @@ import com.xy.baselib.base.BaseNoModelActivity;
 import com.xy.jepackdemo.R;
 import com.xy.jepackdemo.databinding.ActivityMainBinding;
 import com.xy.jepackdemo.ui.bond.BondFragment;
+import com.xy.jepackdemo.ui.btc.BtcFragment;
 import com.xy.jepackdemo.ui.fund.FundFragment;
 import com.xy.jepackdemo.ui.stock.StockFragment;
-import com.xy.jepackdemo.ui.strategy.StrategyFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class MainActivity extends BaseNoModelActivity<ActivityMainBinding> imple
         dataBinding.mainBoneLayout.setOnClickListener(this);
         dataBinding.mainStockLayout.setOnClickListener(this);
         dataBinding.mainFundLayout.setOnClickListener(this);
-        dataBinding.mainStrategyLayout.setOnClickListener(this);
+        dataBinding.mainBtcLayout.setOnClickListener(this);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class MainActivity extends BaseNoModelActivity<ActivityMainBinding> imple
         fragments.add(new BondFragment());
         fragments.add(new StockFragment());
         fragments.add(new FundFragment());
-        fragments.add(new StrategyFragment());
+        fragments.add(new BtcFragment());
 
         showFragment(0);
         changBottom(0);
@@ -93,49 +93,28 @@ public class MainActivity extends BaseNoModelActivity<ActivityMainBinding> imple
      * 改变底部控件
      */
     public void changBottom(int position) {
-        dataBinding.mainBoneText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
-        dataBinding.mainStockText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
-        dataBinding.mainFundText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
-        dataBinding.mainStrategyText.setTextColor(ContextCompat.getColor(this, R.color.color_666666));
+        dataBinding.mainBoneText.setTextColor(ContextCompat.getColor(this, position == 0 ? R.color.color_EB3323 : R.color.color_666666));
+        dataBinding.mainStockText.setTextColor(ContextCompat.getColor(this, position == 1 ? R.color.color_EB3323 : R.color.color_666666));
+        dataBinding.mainFundText.setTextColor(ContextCompat.getColor(this, position == 2 ? R.color.color_EB3323 : R.color.color_666666));
+        dataBinding.mainBtcText.setTextColor(ContextCompat.getColor(this, position == 3 ? R.color.color_EB3323 : R.color.color_666666));
 
-        dataBinding.mainBoneImg.setImageResource(R.drawable.bond_un_select);
-        dataBinding.mainStockImg.setImageResource(R.drawable.stock_un_select);
-        dataBinding.mainFundImg.setImageResource(R.drawable.fund_un_select);
-        dataBinding.mainStrategyImg.setImageResource(R.drawable.strategy_un_select);
-
-        switch (position) {
-            case 0:
-                dataBinding.mainBoneImg.setImageResource(R.drawable.bond);
-                dataBinding.mainBoneText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
-                break;
-            case 1:
-                dataBinding.mainStockImg.setImageResource(R.drawable.stock);
-                dataBinding.mainStockText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
-                break;
-            case 2:
-                dataBinding.mainFundImg.setImageResource(R.drawable.fund);
-                dataBinding.mainFundText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
-                break;
-            case 3:
-                dataBinding.mainStrategyImg.setImageResource(R.drawable.strategy);
-                dataBinding.mainStrategyText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
-                break;
-            default:
-                break;
-        }
+        dataBinding.mainBoneImg.setImageResource(position == 0 ? R.drawable.bond : R.drawable.bond_un_select);
+        dataBinding.mainStockImg.setImageResource(position == 1 ? R.drawable.stock : R.drawable.stock_un_select);
+        dataBinding.mainFundImg.setImageResource(position == 2 ? R.drawable.fund : R.drawable.fund_un_select);
+        dataBinding.mainBtcImg.setImageResource(position == 3 ? R.drawable.strategy : R.drawable.strategy_un_select);
     }
 
     @Override
     public void onClick(View view) {
         int position = 0;
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.main_stock_layout:
                 position = 1;
                 break;
             case R.id.main_fund_layout:
                 position = 2;
                 break;
-            case R.id.main_strategy_layout:
+            case R.id.main_btc_layout:
                 position = 3;
                 break;
             default:

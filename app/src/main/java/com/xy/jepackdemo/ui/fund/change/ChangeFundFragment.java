@@ -91,6 +91,6 @@ public class ChangeFundFragment extends BaseLazyFragment<ChangeFundViewModel, Fr
 
     @Override
     protected void showError(Object obj) {
-
+        dataBinding.refreshLayout.finishRefresh();
     }
 }
