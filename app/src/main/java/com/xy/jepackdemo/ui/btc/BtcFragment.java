@@ -12,6 +12,7 @@ import com.xy.jepackdemo.adapter.FgiViewAdapter;
 import com.xy.jepackdemo.bean.FgiBean;
 import com.xy.jepackdemo.databinding.FragmentBtcBinding;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -39,9 +40,9 @@ public class BtcFragment extends BaseLazyFragment<BtcViewModel, FragmentBtcBindi
 
     @Override
     protected void initData() {
-        viewModel.getBtcPriceData().observe(this, new Observer<List<List<Float>>>() {
+        viewModel.getBtcPriceData().observe(this, new Observer<List<List<BigDecimal>>>() {
             @Override
-            public void onChanged(List<List<Float>> bean) {
+            public void onChanged(List<List<BigDecimal>> bean) {
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
                 layoutManager.setOrientation(RecyclerView.HORIZONTAL);
                 dataBinding.ivPriceRecycler.setLayoutManager(layoutManager);

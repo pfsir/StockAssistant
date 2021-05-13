@@ -1,5 +1,6 @@
 package com.xy.jepackdemo.bean;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public class BtcPriceBean {
 
     private int code;
     private String msg;
-    private List<List<Float>> data;
+    private List<List<BigDecimal>> data;
 
     public int getCode() {
         return code;
@@ -34,11 +35,11 @@ public class BtcPriceBean {
         this.msg = msg;
     }
 
-    public List<List<Float>> getData() {
+    public List<List<BigDecimal>> getData() {
         return data;
     }
 
-    public void setData(List<List<Float>> data) {
+    public void setData(List<List<BigDecimal>> data) {
         this.data = data;
     }
 }

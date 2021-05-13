@@ -9,6 +9,7 @@ import com.xy.jepackdemo.http.AbstractSubscriber;
 import com.xy.jepackdemo.http.HttpClient;
 import com.xy.jepackdemo.http.RxUtil;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,33 +17,33 @@ import java.util.List;
 public class BtcViewModel extends BaseViewModel {
 
     private final List<FgiBean.DataFgi> fgiBeans = new ArrayList<>();
-    private final List<List<Float>> btcPriceBeans = new ArrayList<>();
-    private final long TEMP_CONST = 1000*60*60*24*30L;
+    private final List<List<BigDecimal>> btcPriceBeans = new ArrayList<>();
 
     protected UnPeekLiveData<List<FgiBean.DataFgi>> fgiData = new UnPeekLiveData<>();
-    protected UnPeekLiveData<List<List<Float>>> btcPriceData = new UnPeekLiveData<>();
+    protected UnPeekLiveData<List<List<BigDecimal>>> btcPriceData = new UnPeekLiveData<>();
 
     public UnPeekLiveData<List<FgiBean.DataFgi>> getBtcFgiData() {
         return fgiData;
     }
 
-    public UnPeekLiveData<List<List<Float>>> getBtcPriceData() {
+    public UnPeekLiveData<List<List<BigDecimal>>> getBtcPriceData() {
         return btcPriceData;
     }
 
     /**
-     * 请求恐惧贪婪指数数据
+     * 请求btc价格
      */
     public void requestBtcPrice(final boolean show) {
         if (show) {
             showDialog.setValue(true, "加载中");
         }
 
-        String end = DateUtil.getInstance().longToYMD(System.currentTimeMillis()) ;
-        String start = DateUtil.getInstance().longToYMD(System.currentTimeMillis() -  TEMP_CONST) ;
+        String end = DateUtil.getInstance().longToYMD(System.currentTimeMillis());
+        long startTime = System.currentTimeMillis() - 1000 * 60 * 60 * 24 * 30L;
+        String start = DateUtil.getInstance().longToYMD(startTime);
 
         addDisposable(HttpClient.Builder.getBtcService()
-                .getBtcData("bitcoin",start,end)
+                .getBtcData("bitcoin", start, end)
                 .compose(RxUtil.<BtcPriceBean>rxSchedulerHelper())
                 .subscribeWith(new AbstractSubscriber<BtcPriceBean>() {
                     @Override

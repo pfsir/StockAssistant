@@ -35,7 +35,7 @@ public class ChoiceViewModel extends BaseViewModel {
         }
         //进攻表 溢价率<20%，价格小于110元，评级至少为AA，上市满足半年
         addDisposable(HttpClient.Builder.getJslService()
-                .getJslFilterBond(System.currentTimeMillis(), 0, 110, "", "",
+                .getJslFilterBond(System.currentTimeMillis(), 0, 111, "", "",
                         "20", "", "", "Y", "C", "Y",
                         "", "", 50)
                 .compose(RxUtil.<FilterBondBean>rxSchedulerHelper())

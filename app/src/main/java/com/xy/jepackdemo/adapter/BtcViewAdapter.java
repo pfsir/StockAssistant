@@ -3,17 +3,17 @@ package com.xy.jepackdemo.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.xy.baselib.utils.ToastUtil;
 import com.xy.jepackdemo.R;
-import com.xy.jepackdemo.bean.FgiBean;
 import com.xy.jepackdemo.common.CommonUtil;
 import com.xy.jepackdemo.common.DateUtil;
 import com.xy.jepackdemo.ui.view.ChartsLineView;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,14 +23,14 @@ import java.util.List;
 
 
 public class BtcViewAdapter extends RecyclerView.Adapter<BtcViewAdapter.ViewHolder> {
-    private final List<List<Float>> btcPriceList;
+    private final List<List<BigDecimal>> btcPriceList;
     private final long mTemperatureMax;
     private final long mTemperatureMin;
 
-    public BtcViewAdapter(List<List<Float>> btcPriceList) {
+    public BtcViewAdapter(List<List<BigDecimal>> btcPriceList) {
         this.btcPriceList = btcPriceList;
         List<Long> tempList = new ArrayList<>();
-        for (List<Float>  bean : btcPriceList) {
+        for (List<BigDecimal> bean : btcPriceList) {
             tempList.add(bean.get(4).longValue());
         }
         Long[] mHeight = tempList.toArray(new Long[tempList.size()]);
@@ -66,14 +66,14 @@ public class BtcViewAdapter extends RecyclerView.Adapter<BtcViewAdapter.ViewHold
             holder.mChartsLineView.draws(preTemp2, temp, nextTemp2, ChartsLineView.MEDIUM_ITEM);
         }
 
-        final List<Float> bean = btcPriceList.get(position);
-        holder.mChartsLineView.setText(mTemperatureMax, mTemperatureMin, bean.get(4).longValue()+"");
+        final List<BigDecimal> bean = btcPriceList.get(position);
+        holder.mChartsLineView.setText(mTemperatureMax, mTemperatureMin, bean.get(4).longValue() + "");
         holder.mChartsLineView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String time = DateUtil.getInstance().longToYMD(bean.get(0).longValue());
-                //转为string
-                Toast.makeText(v.getContext(), time, Toast.LENGTH_SHORT).show();
+                long dateTime = bean.get(0).longValue() + 1000 * 60 * 60 * 24L;
+                String time = DateUtil.getInstance().longToYMD(dateTime);
+                ToastUtil.showToast(v.getContext(), time);
             }
         });
     }
