@@ -20,7 +20,6 @@ lib类代码来自https://github.com/KunMinX/Jetpack-MVVM-Best-Practice。
 3.钉365：钉大的钉钉宝365组合
 2.基金可以套利的部分
 
-策略部分：（数据来自也大星球）
-根据也大投资的逻辑链整理的投资策略
-
+btc部分：
+近30天的btc价格及恐慌贪婪指数
 
