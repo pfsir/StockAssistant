@@ -2,7 +2,7 @@
 股票/基金/债券相关信息的协助应用。
 
 开发原因主要是不想装太多app，比如集思录，蛋卷之类的，把他们部分数据集合到这个App上；同时也想用jetpack相关组件练练手。
-lib类代码来自https://github.com/KunMinX/Jetpack-MVVM-Best-Practice。
+lib类部分代码来自https://github.com/KunMinX/Jetpack-MVVM-Best-Practice。
 
 注：此App中数据不构成任何投资建议。
 
@@ -20,6 +20,6 @@ lib类代码来自https://github.com/KunMinX/Jetpack-MVVM-Best-Practice。
 3.钉365：钉大的钉钉宝365组合
 2.基金可以套利的部分
 
-btc部分：
+btc部分：（数据来自https://history.btc126.com/zhishu/）
 近30天的btc价格及恐慌贪婪指数
 
