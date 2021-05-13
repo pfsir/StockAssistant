@@ -18,7 +18,7 @@ lib类部分代码来自https://github.com/KunMinX/Jetpack-MVVM-Best-Practice。
 1.指基：钉大发车的指数基金
 2.优选：钉大的主动优选组合
 3.钉365：钉大的钉钉宝365组合
-2.基金可以套利的部分
+4.基金可以套利的部分
 
 btc部分：（数据来自https://history.btc126.com/zhishu/）
 近30天的btc价格及恐慌贪婪指数
