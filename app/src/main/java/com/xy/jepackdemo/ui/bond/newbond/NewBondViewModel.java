@@ -88,31 +88,33 @@ public class NewBondViewModel extends BaseViewModel {
             double pmaRt = Double.parseDouble(pma_rt);
             int pmaRtInt = (int) pmaRt;
             int rating;
-            switch (cell.getRating_cd().trim()) {
-                case "AAA":
-                    rating = 15;
-                    break;
-                case "AA+":
-                case "AA":
-                    rating = 10;
-                    break;
-                case "AA-":
-                    rating = 5;
-                    break;
-                default:
-                    rating = 0;
-                    break;
-            }
-            String esPrice;
-            if (pmaRtInt < 90) {
-                esPrice = (pmaRtInt + rating + 20 + 5) + "";
-            } else if (pmaRtInt < 100) {
-                esPrice = (pmaRtInt + rating + 10 + 5) + "";
-            } else {
-                esPrice = (pmaRtInt + rating + 5) + "";
-            }
+            if (!TextUtils.isEmpty(cell.getRating_cd())) {
+                switch (cell.getRating_cd().trim()) {
+                    case "AAA":
+                        rating = 15;
+                        break;
+                    case "AA+":
+                    case "AA":
+                        rating = 10;
+                        break;
+                    case "AA-":
+                        rating = 5;
+                        break;
+                    default:
+                        rating = 0;
+                        break;
+                }
+                String esPrice;
+                if (pmaRtInt < 90) {
+                    esPrice = (pmaRtInt + rating + 20 + 5) + "";
+                } else if (pmaRtInt < 100) {
+                    esPrice = (pmaRtInt + rating + 10 + 5) + "";
+                } else {
+                    esPrice = (pmaRtInt + rating + 5) + "";
+                }
 
-            cell.setEs_price(esPrice);
+                cell.setEs_price(esPrice);
+            }
 
             cellBeanList.add(cell);
             newBondList.setValue(cellBeanList);

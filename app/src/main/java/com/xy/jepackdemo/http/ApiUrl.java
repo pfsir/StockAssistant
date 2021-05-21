@@ -29,7 +29,7 @@ public class ApiUrl {
     /**
      * BTC
      */
-    public static final String BTC_BASE_URL = " https://history.btc126.com/";
+    public static final String BTC_BASE_URL = "https://history.btc126.com/";
 
     /**
      * 当前新债
