@@ -18,6 +18,7 @@ import com.xy.jepackdemo.R;
 import com.xy.jepackdemo.databinding.FragmentBondBinding;
 import com.xy.jepackdemo.ui.SettingActivity;
 import com.xy.jepackdemo.ui.bond.choice.ChoiceBondFragment;
+import com.xy.jepackdemo.ui.bond.doublelow.DoubleLowBondFragment;
 import com.xy.jepackdemo.ui.bond.newbond.NewBondFragment;
 
 /**
@@ -37,6 +38,7 @@ public class BondFragment extends BaseNoModelFragment<FragmentBondBinding> {
 
     private TextView tv1;
     private TextView tv2;
+    private TextView tv3;
 
     @Override
     protected int getLayoutId() {
@@ -51,13 +53,16 @@ public class BondFragment extends BaseNoModelFragment<FragmentBondBinding> {
             public Fragment createFragment(int position) {
                 if (position == 0) {
                     return new NewBondFragment();
+                } else if (position == 1) {
+                    return new ChoiceBondFragment();
+                } else {
+                    return new DoubleLowBondFragment();
                 }
-                return new ChoiceBondFragment();
             }
 
             @Override
             public int getItemCount() {
-                return 2;
+                return 3;
             }
         });
 
@@ -67,14 +72,22 @@ public class BondFragment extends BaseNoModelFragment<FragmentBondBinding> {
             @Override
             public void onPageSelected(int position) {
                 if (position == 0) {
-                    if (tv1 != null && tv2 != null) {
+                    if (tv1 != null && tv2 != null && tv3 != null) {
                         tv1.setTextColor(getResources().getColor(R.color.colorPrimary));
                         tv2.setTextColor(getResources().getColor(R.color.color_FFF0F5));
+                        tv3.setTextColor(getResources().getColor(R.color.color_FFF0F5));
                     }
-                } else {
-                    if (tv1 != null && tv2 != null) {
+                } else if (position == 1) {
+                    if (tv1 != null && tv2 != null && tv3 != null) {
                         tv1.setTextColor(getResources().getColor(R.color.color_FFF0F5));
                         tv2.setTextColor(getResources().getColor(R.color.colorPrimary));
+                        tv3.setTextColor(getResources().getColor(R.color.color_FFF0F5));
+                    }
+                } else {
+                    if (tv1 != null && tv2 != null && tv3 != null) {
+                        tv1.setTextColor(getResources().getColor(R.color.color_FFF0F5));
+                        tv2.setTextColor(getResources().getColor(R.color.color_FFF0F5));
+                        tv3.setTextColor(getResources().getColor(R.color.colorPrimary));
                     }
                 }
             }
@@ -95,6 +108,11 @@ public class BondFragment extends BaseNoModelFragment<FragmentBondBinding> {
         TabLayout.Tab tab2 = dataBinding.bondTab.getTabAt(1);
         if (tab2 != null) {
             tab2.setCustomView(getTabView1());
+        }
+
+        TabLayout.Tab tab3 = dataBinding.bondTab.getTabAt(2);
+        if (tab3 != null) {
+            tab3.setCustomView(getTabView2());
         }
 
         dataBinding.ivSetting.setOnClickListener(new View.OnClickListener() {
@@ -121,9 +139,17 @@ public class BondFragment extends BaseNoModelFragment<FragmentBondBinding> {
 
     private View getTabView1() {
         LayoutInflater mInflater = LayoutInflater.from(getContext());
-        View view = mInflater.inflate(R.layout.item_tab_right, null);
-        tv2 = view.findViewById(R.id.tab_text_right);
+        View view = mInflater.inflate(R.layout.item_tab_center, null);
+        tv2 = view.findViewById(R.id.tab_text_center);
         tv2.setText("精选");
+        return view;
+    }
+
+    private View getTabView2() {
+        LayoutInflater mInflater = LayoutInflater.from(getContext());
+        View view = mInflater.inflate(R.layout.item_tab_right, null);
+        tv3 = view.findViewById(R.id.tab_text_right);
+        tv3.setText("双低");
         return view;
     }
 }

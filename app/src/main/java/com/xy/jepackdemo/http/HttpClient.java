@@ -1,6 +1,7 @@
 package com.xy.jepackdemo.http;
 
 import com.xy.jepackdemo.bean.BtcPriceBean;
+import com.xy.jepackdemo.bean.DoubleLowBondBean;
 import com.xy.jepackdemo.bean.FgiBean;
 import com.xy.jepackdemo.bean.FilterBondBean;
 import com.xy.jepackdemo.bean.FundDetailBean;
@@ -104,6 +105,17 @@ public interface HttpClient {
                                               @Field("industry") String industry,
                                               @Field("bond_ids") String bond_ids,
                                               @Field("rp") int rp);
+
+
+    @FormUrlEncoded
+    @POST(ApiUrl.GET_JSL_FILTER_BOND)
+    Flowable<DoubleLowBondBean> getJslAllBond(@Query("___jsl=LST___t") long time,
+                                              @Field("is_search") String is_search,
+                                              @Field("btype") String btype,
+                                              @Field("listed") String listed,
+                                              @Field("qflag") String qflag,
+                                              @Field("rp") int rp);
+
 
     /**
      * 获取新债

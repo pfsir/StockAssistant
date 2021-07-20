@@ -4,10 +4,10 @@ import java.util.List;
 
 /**
  * @author oyangpengfei
- * @date 2019/11/18.
+ * @date 2021/7/20.
  * description
  */
-public class FilterBondBean {
+public class DoubleLowBondBean {
 
     /**
      * page : 1
@@ -209,6 +209,7 @@ public class FilterBondBean {
             private String ytm_rt;
             private String ytm_rt_tax;
             private String type;
+            private String dblow;
 
             public String getType() {
                 return type;
@@ -762,15 +763,18 @@ public class FilterBondBean {
                 this.ytm_rt_tax = ytm_rt_tax;
             }
 
+            public String getDblow() {
+                return dblow;
+            }
+
+            public void setDblow(String dblow) {
+                this.dblow = dblow;
+            }
 
             @Override
             public int compareTo(CellBean o) {
                 try {
-                    String oPremiumRt = o.getYtm_rt_tax().replace("%", "");
-                    String tPremiumRt = this.getYtm_rt_tax().replace("%", "");
-                    Double doPremiumRt = Double.valueOf(oPremiumRt);
-                    Double dtPremiumRt = Double.valueOf(tPremiumRt);
-                    return (int) ((doPremiumRt - dtPremiumRt) * 100);
+                    return (int) (Double.parseDouble(this.dblow)-Double.parseDouble(o.dblow));
                 }catch (Exception e){
                     return 0;
                 }

@@ -21,6 +21,7 @@
     <string name="bond_price">价格</string>
     <string name="bond_premium_rate">溢价率</string>
     <string name="bond_yield_to_maturity">到期收益</string>
+    <string name="bond_db_low">双低</string>
 
 
     <string name="stock_name">股票名称</string>
