@@ -42,6 +42,7 @@ public class DoubleLowViewModel extends BaseViewModel {
                         if (show) {
                             showDialog.setValue(false);
                         }
+                        allBeans.clear();
                         cellBeans.clear();
                         if (doubleLowBondBean.getRows() != null && doubleLowBondBean.getRows().size() > 0) {
                             for (DoubleLowBondBean.RowsBean rowsBean : doubleLowBondBean.getRows()) {
