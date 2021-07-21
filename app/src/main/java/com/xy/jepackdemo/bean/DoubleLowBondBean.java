@@ -774,8 +774,12 @@ public class DoubleLowBondBean {
             @Override
             public int compareTo(CellBean o) {
                 try {
-                    return (int) (Double.parseDouble(this.dblow)-Double.parseDouble(o.dblow));
-                }catch (Exception e){
+                    if (Double.parseDouble(this.dblow) > Double.parseDouble(o.dblow)) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                } catch (Exception e) {
                     return 0;
                 }
             }

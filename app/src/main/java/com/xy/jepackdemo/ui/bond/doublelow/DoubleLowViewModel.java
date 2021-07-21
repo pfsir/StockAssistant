@@ -32,7 +32,7 @@ public class DoubleLowViewModel extends BaseViewModel {
         if (show) {
             showDialog.setValue(true, "加载中");
         }
-        //双低转债：价格及溢价率，且pb>1，最近无强赎 （即Redeem_flag!=Y,N）
+        //双低转债：价格及溢价率，且pb>1，最近无强赎 （即Redeem_flag==X）
         addDisposable(HttpClient.Builder.getJslService()
                 .getJslAllBond(System.currentTimeMillis(), "N", "C", "Y", "N", 50)
                 .compose(RxUtil.<DoubleLowBondBean>rxSchedulerHelper())
@@ -51,10 +51,11 @@ public class DoubleLowViewModel extends BaseViewModel {
                         }
                         Collections.sort(allBeans);
                         for (DoubleLowBondBean.RowsBean.CellBean cellBean : allBeans) {
-                            if (cellBeans.size() < 35 && Double.parseDouble(cellBean.getPb()) > 1 && !"C".equals(cellBean.getRedeem_flag())) {
+                            if (cellBeans.size() < 35 && Double.parseDouble(cellBean.getPb()) > 1 && "X".equals(cellBean.getRedeem_flag())) {
                                 cellBeans.add(cellBean);
                             }
                         }
+                        Collections.sort(cellBeans);
                         doubleLowBond.setValue(cellBeans);
                     }
 
