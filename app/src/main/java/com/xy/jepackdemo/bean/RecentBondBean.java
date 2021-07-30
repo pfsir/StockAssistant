@@ -260,7 +260,7 @@ public class RecentBondBean {
                 if (lucky_draw_rt == null) {
                     return "-";
                 }
-                return lucky_draw_rt + "%";
+                return  String.format("%.2f", Double.parseDouble(lucky_draw_rt) * 1000)+"%";
             }
 
             public void setLucky_draw_rt(String lucky_draw_rt) {
@@ -308,7 +308,7 @@ public class RecentBondBean {
             }
 
             public String getPma_rt() {
-                return Math.round(Double.parseDouble(pma_rt))+"";
+                return Math.round(Double.parseDouble(pma_rt)) + "";
             }
 
             public void setPma_rt(String pma_rt) {
