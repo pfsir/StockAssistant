@@ -35,7 +35,7 @@ public class DoubleLowBondFragment extends BaseLazyFragment<DoubleLowViewModel, 
         dataBinding.refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                dataBinding.refreshLayout.finishRefresh();
+                viewModel.requestDoubleLowBond(false);
             }
         });
         dataBinding.refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
@@ -55,6 +55,7 @@ public class DoubleLowBondFragment extends BaseLazyFragment<DoubleLowViewModel, 
         viewModel.getDoubleLowBond().observe(this, new Observer<List<DoubleLowBondBean.RowsBean.CellBean>>() {
             @Override
             public void onChanged(List<DoubleLowBondBean.RowsBean.CellBean> bean) {
+                dataBinding.refreshLayout.finishRefresh();
                 doubleLowBondAdapter.setNewData(bean);
             }
         });

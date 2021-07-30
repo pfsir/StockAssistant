@@ -111,6 +111,8 @@ public interface HttpClient {
     @POST(ApiUrl.GET_JSL_FILTER_BOND)
     Flowable<DoubleLowBondBean> getJslAllBond(@Query("___jsl=LST___t") long time,
                                               @Field("is_search") String is_search,
+                                              @Field("fprice") int fprice,
+                                              @Field("tprice") int tprice,
                                               @Field("btype") String btype,
                                               @Field("listed") String listed,
                                               @Field("qflag") String qflag,

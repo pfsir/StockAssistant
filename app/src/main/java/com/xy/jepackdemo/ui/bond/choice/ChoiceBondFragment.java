@@ -46,7 +46,7 @@ public class ChoiceBondFragment extends BaseLazyFragment<ChoiceViewModel, Fragme
         dataBinding.refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                dataBinding.refreshLayout.finishRefresh();
+                viewModel.requestAttackBond(false);
             }
         });
         dataBinding.refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
@@ -66,6 +66,7 @@ public class ChoiceBondFragment extends BaseLazyFragment<ChoiceViewModel, Fragme
         viewModel.getAllBond().observe(this, new Observer<List<FilterBondBean.RowsBean.CellBean>>() {
             @Override
             public void onChanged(List<FilterBondBean.RowsBean.CellBean> bean) {
+                dataBinding.refreshLayout.finishRefresh();
                 filterBondAdapter.setNewData(bean);
             }
         });

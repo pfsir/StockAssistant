@@ -34,7 +34,7 @@ public class DoubleLowViewModel extends BaseViewModel {
         }
         //双低转债：价格及溢价率，且pb>1，最近无强赎 （即Redeem_flag==X）
         addDisposable(HttpClient.Builder.getJslService()
-                .getJslAllBond(System.currentTimeMillis(), "N", "C", "Y", "N", 50)
+                .getJslAllBond(System.currentTimeMillis(), "Y",0,120, "C", "Y", "N", 50)
                 .compose(RxUtil.<DoubleLowBondBean>rxSchedulerHelper())
                 .subscribeWith(new AbstractSubscriber<DoubleLowBondBean>() {
                     @Override
