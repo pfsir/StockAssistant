@@ -21,6 +21,7 @@ import com.xy.jepackdemo.databinding.FragmentFundBinding;
 import com.xy.jepackdemo.ui.SettingActivity;
 import com.xy.jepackdemo.ui.fund.arbitrage.ArbitrageFundFragment;
 import com.xy.jepackdemo.ui.fund.change.ChangeFundFragment;
+import com.xy.jepackdemo.ui.fund.rotate.RotateFragment;
 import com.xy.jepackdemo.ui.fund.valuation.ValuationFundFragment;
 
 /**
@@ -57,10 +58,7 @@ public class FundFragment extends BaseNoModelFragment<FragmentFundBinding> {
                         changeFundFragment.setArguments(bundle);
                         return changeFundFragment;
                     case 2:
-                        ChangeFundFragment changeFundFragment2= new ChangeFundFragment();
-                        bundle.putInt(CommonUtil.FUND_TYPE,CommonUtil.D365);
-                        changeFundFragment2.setArguments(bundle);
-                        return changeFundFragment2;
+                        return new RotateFragment();
                     default:
                         return new ArbitrageFundFragment();
                 }
@@ -159,7 +157,7 @@ public class FundFragment extends BaseNoModelFragment<FragmentFundBinding> {
         LayoutInflater mInflater = LayoutInflater.from(getContext());
         View view = mInflater.inflate(R.layout.item_tab_center, null);
         tvCenterTwo = view.findViewById(R.id.tab_text_center);
-        tvCenterTwo.setText("钉365");
+        tvCenterTwo.setText("轮动");
         return view;
     }
 

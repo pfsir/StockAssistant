@@ -50,6 +50,12 @@ public class ApiUrl {
      */
     public static final String GET_JSL_HK_IPO = "data/new_stock/hkipo/";
 
+
+    /**
+     * 获取基金相关信息
+     */
+    public static final String GET_LXR_FUND_INFO = "api/a/index/fundamental";
+
     /**
      * 获取股票基本面数据
      */

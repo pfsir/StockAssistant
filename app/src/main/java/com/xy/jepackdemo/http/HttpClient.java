@@ -4,6 +4,7 @@ import com.xy.jepackdemo.bean.BtcPriceBean;
 import com.xy.jepackdemo.bean.DoubleLowBondBean;
 import com.xy.jepackdemo.bean.FgiBean;
 import com.xy.jepackdemo.bean.FilterBondBean;
+import com.xy.jepackdemo.bean.FundBean;
 import com.xy.jepackdemo.bean.FundDetailBean;
 import com.xy.jepackdemo.bean.FundLofBean;
 import com.xy.jepackdemo.bean.FundValuationBean;
@@ -120,13 +121,23 @@ public interface HttpClient {
 
 
     /**
-     * 获取新债
+     * 获取股票
      *
      * @return
      * @time 当前时间的毫秒值
      */
     @POST(ApiUrl.GET_LXR_STOCK_INFO)
     Flowable<StockBean> getLxrStockInfo(@Body RequestBody route);
+
+
+    /**
+     * 获取基金
+     *
+     * @return
+     * @time 当前时间的毫秒值
+     */
+    @POST(ApiUrl.GET_LXR_FUND_INFO)
+    Flowable<FundBean> getLxrFundInfo(@Body RequestBody route);
 
     /**
      * 获取新债

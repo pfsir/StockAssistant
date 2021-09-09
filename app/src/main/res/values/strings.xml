@@ -45,6 +45,16 @@
     <string name="fund_nav">基金净值</string>
     <string name="fund_discount">溢价率</string>
 
+    <string name="fund_20">20日涨跌幅：</string>
+    <string name="fund_300">沪深300：</string>
+    <string name="fund_500">中证500：</string>
+    <string name="fund_current">当前持有基金：</string>
+    <string name="fund_need_rotate">是否需要切换：</string>
+    <string name="fund_to_rotate">切换基金</string>
+    <string name="fund_logic">切换逻辑：</string>
+    <string name="fund_rotate_content">大小盘基金轮动策略：沪深300，中证500增强基金轮动切换;每天回看这两个指数最近 20 个交易日的涨幅，
+        当沪深 300 的区间涨幅大于中证 500 时，持有沪深 300；当中证 500 的区间涨幅大于沪深 300 时，持有中证 500。
+        （ps:基金选择规模1-5亿的，可以有打新的超额收益。）</string>
 
 
     <string name="hk_company_name">公司名称</string>

@@ -1,6 +1,5 @@
 package com.xy.jepackdemo.bean;
 
-import java.util.List;
 
 public class StockRequestBean {
 

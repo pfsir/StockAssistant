@@ -19,6 +19,12 @@ import com.xy.jepackdemo.R;
  * description
  */
 public class App extends Application {
+    private static Context context;
+
+    public static Context getInstance(){
+        return context;
+    }
+
     //static 代码段可以防止内存泄露
     static {
         //设置全局的Header构建器
@@ -38,5 +44,11 @@ public class App extends Application {
             }
         });
         CommonUtil.init();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        context = getApplicationContext();
     }
 }
