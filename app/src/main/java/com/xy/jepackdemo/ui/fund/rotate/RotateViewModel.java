@@ -27,7 +27,6 @@ public class RotateViewModel extends BaseViewModel {
     public static String LAST_ROTATE = "LastRotate";
     public static String HS = "hs";
     public static String ZZ = "zz";
-    private List<FundBean.Data> startDataList = new ArrayList<>();
     private FundTrueBean fundTrueBean = new FundTrueBean();
     /**
      * 当数据请求成功回调
@@ -49,10 +48,10 @@ public class RotateViewModel extends BaseViewModel {
         stockRequestBean.setToken(CommonUtil.TOKEN);
 
         String date = DateUtil.getInstance().longToYMD(System.currentTimeMillis() - 20 * 24 * 60 * 60 * 1000);
-        stockRequestBean.setDate(date);
+        stockRequestBean.setStartDate(date);
         String[] metricsList = new String[]{"cp", "cpc"};
         stockRequestBean.setMetricsList(metricsList);
-        String[] stockCodes = new String[]{"000905", "000300"};
+        String[] stockCodes = new String[]{"000905"};
         stockRequestBean.setStockCodes(stockCodes);
 
         String json = new Gson().toJson(stockRequestBean);
@@ -64,9 +63,11 @@ public class RotateViewModel extends BaseViewModel {
                 .subscribeWith(new AbstractSubscriber<FundBean>() {
                     @Override
                     public void onNext(FundBean fundBean) {
-                        startDataList.clear();
-                        startDataList.addAll(fundBean.getData());
-                        requestEndFund(show);
+                        List<FundBean.Data> dataList = fundBean.getData();
+                        DecimalFormat df = new DecimalFormat("#.00");
+                        double zz500 = (dataList.get(0).getCp() - dataList.get(dataList.size() - 1).getCp()) * 100 / dataList.get(dataList.size() - 1).getCp();
+                        fundTrueBean.setZz500(df.format(zz500) + "%");
+                        requestEndFund(show, zz500);
                     }
 
                     @Override
@@ -83,15 +84,15 @@ public class RotateViewModel extends BaseViewModel {
                 }));
     }
 
-    public void requestEndFund(final boolean show) {
+    public void requestEndFund(final boolean show, final double zz500) {
         StockRequestBean stockRequestBean = new StockRequestBean();
         stockRequestBean.setToken(CommonUtil.TOKEN);
 
-        String date = DateUtil.getInstance().longToYMD(System.currentTimeMillis() - 24 * 60 * 60 * 1000);
-        stockRequestBean.setDate(date);
+        String date = DateUtil.getInstance().longToYMD(System.currentTimeMillis() - 20 * 24 * 60 * 60 * 1000);
+        stockRequestBean.setStartDate(date);
         String[] metricsList = new String[]{"cp", "cpc"};
         stockRequestBean.setMetricsList(metricsList);
-        String[] stockCodes = new String[]{"000905", "000300"};
+        String[] stockCodes = new String[]{"000300"};
         stockRequestBean.setStockCodes(stockCodes);
 
         String json = new Gson().toJson(stockRequestBean);
@@ -106,21 +107,19 @@ public class RotateViewModel extends BaseViewModel {
                         if (show) {
                             showDialog.setValue(false);
                         }
+                        List<FundBean.Data> dataList = fundBean.getData();
                         DecimalFormat df = new DecimalFormat("#.00");
-                        double zz500 = (fundBean.getData().get(0).getCp() - startDataList.get(0).getCp()) * 100 / startDataList.get(0).getCp();
-                        double hs300 = (fundBean.getData().get(1).getCp() - startDataList.get(1).getCp()) * 100 / startDataList.get(1).getCp();
+                        double hs300 = (dataList.get(0).getCp() - dataList.get(dataList.size() - 1).getCp()) * 100 / dataList.get(dataList.size() - 1).getCp();
 
                         String current = SharePreUtil.getString(App.getInstance(), LAST_ROTATE, HS);
                         fundTrueBean.setCurrentValue(current);
-
                         fundTrueBean.setMaxValue(hs300 >= zz500 ? HS : ZZ);
                         if (!fundTrueBean.getMaxValue().equals(current)) {
                             fundTrueBean.setShouldRotate("是");
-                        }else {
+                        } else {
                             fundTrueBean.setShouldRotate("否");
                         }
                         fundTrueBean.setHs300(df.format(hs300) + "%");
-                        fundTrueBean.setZz500(df.format(zz500) + "%");
 
                         fundTrueBeanData.setValue(fundTrueBean);
                     }

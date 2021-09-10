@@ -12,6 +12,7 @@ public class StockRequestBean {
 
     private String token;
     private String date;
+    private String startDate;
     private String[] stockCodes;
     private String[] metricsList;
 
@@ -29,6 +30,14 @@ public class StockRequestBean {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public String[] getStockCodes() {
