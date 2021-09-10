@@ -1,5 +1,6 @@
 package com.xy.jepackdemo.http;
 
+import com.xy.jepackdemo.bean.BondPriceBean;
 import com.xy.jepackdemo.bean.BtcPriceBean;
 import com.xy.jepackdemo.bean.DoubleLowBondBean;
 import com.xy.jepackdemo.bean.FgiBean;
@@ -60,6 +61,12 @@ public interface HttpClient {
      */
     @GET(ApiUrl.GET_JSL_RECENT_BOND)
     Flowable<RecentBondBean> getJslRecentBond(@Query("___jsl=LST___t") long time);
+
+    /**
+     * 获取可转债价格
+     */
+    @GET(ApiUrl.GET_JSL_BOND_PRICE)
+    Flowable<BondPriceBean> getJslBondPrice();
 
 
     /**
@@ -148,14 +155,14 @@ public interface HttpClient {
     @POST(ApiUrl.GET_LXR_INSURANCE_STOCK_INFO)
     Flowable<StockBean> getLxrInsuranceStockInfo(@Body RequestBody route);
 
-       /**
+    /**
      * 获取指数基金估值
      *
      * @return
      * @source lsd
      */
     @GET(ApiUrl.GET_DJ_FUND_INFO)
-    Flowable<FundValuationBean> getDjFundInfo(@Query("size") String size,@Query("page") String page);
+    Flowable<FundValuationBean> getDjFundInfo(@Query("size") String size, @Query("page") String page);
 
     /**
      * 基金详情
@@ -170,8 +177,8 @@ public interface HttpClient {
      * 获取Lof基金溢价率
      *
      * @return
-     * @___jsl=LST___t  时间
-     * @rp  25
+     * @___jsl=LST___t 时间
+     * @rp 25
      * @page 1
      */
     @GET(ApiUrl.GET_JSL_LOF_FUND)

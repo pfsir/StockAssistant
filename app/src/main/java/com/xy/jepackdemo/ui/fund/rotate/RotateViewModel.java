@@ -6,7 +6,6 @@ import com.xy.baselib.lifecycle.UnPeekLiveData;
 import com.xy.baselib.utils.SharePreUtil;
 import com.xy.jepackdemo.bean.FundBean;
 import com.xy.jepackdemo.bean.FundTrueBean;
-import com.xy.jepackdemo.bean.StockBean;
 import com.xy.jepackdemo.bean.StockRequestBean;
 import com.xy.jepackdemo.common.App;
 import com.xy.jepackdemo.common.CommonUtil;
@@ -16,8 +15,6 @@ import com.xy.jepackdemo.http.HttpClient;
 import com.xy.jepackdemo.http.RxUtil;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import okhttp3.RequestBody;

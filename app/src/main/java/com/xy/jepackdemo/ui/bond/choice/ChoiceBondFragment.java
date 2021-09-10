@@ -1,8 +1,5 @@
 package com.xy.jepackdemo.ui.bond.choice;
 
-import android.content.Intent;
-import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -16,7 +13,6 @@ import com.xy.jepackdemo.R;
 import com.xy.jepackdemo.adapter.FilterBondAdapter;
 import com.xy.jepackdemo.bean.FilterBondBean;
 import com.xy.jepackdemo.databinding.FragmentChoiceBondBinding;
-import com.xy.jepackdemo.ui.SettingActivity;
 
 import java.util.List;
 
@@ -43,9 +39,12 @@ public class ChoiceBondFragment extends BaseLazyFragment<ChoiceViewModel, Fragme
 
     @Override
     protected void initView() {
+        dataBinding.setLifecycleOwner(this);
+        dataBinding.setModel(viewModel);
         dataBinding.refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                viewModel.getBondPrice();
                 viewModel.requestAttackBond(false);
             }
         });
@@ -74,6 +73,7 @@ public class ChoiceBondFragment extends BaseLazyFragment<ChoiceViewModel, Fragme
 
     @Override
     protected void lazyLoad() {
+        viewModel.getBondPrice();
         viewModel.requestAttackBond(true);
     }
 

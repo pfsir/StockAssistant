@@ -2,6 +2,7 @@ package com.xy.jepackdemo.ui.bond.choice;
 
 import com.xy.baselib.lifecycle.BaseViewModel;
 import com.xy.baselib.lifecycle.UnPeekLiveData;
+import com.xy.jepackdemo.bean.BondPriceBean;
 import com.xy.jepackdemo.bean.FilterBondBean;
 import com.xy.jepackdemo.http.AbstractSubscriber;
 import com.xy.jepackdemo.http.HttpClient;
@@ -21,9 +22,35 @@ public class ChoiceViewModel extends BaseViewModel {
      * 当数据请求成功回调
      */
     protected UnPeekLiveData<List<FilterBondBean.RowsBean.CellBean>> allBond = new UnPeekLiveData<>();
+    protected UnPeekLiveData<BondPriceBean> bondPriceData = new UnPeekLiveData<>();
 
     public UnPeekLiveData<List<FilterBondBean.RowsBean.CellBean>> getAllBond() {
         return allBond;
+    }
+
+    public UnPeekLiveData<BondPriceBean> getBondPriceData() {
+        return bondPriceData;
+    }
+
+    public void getBondPrice() {
+        addDisposable(HttpClient.Builder.getJslService()
+                .getJslBondPrice()
+                .compose(RxUtil.<BondPriceBean>rxSchedulerHelper())
+                .subscribeWith(new AbstractSubscriber<BondPriceBean>() {
+                    @Override
+                    public void onNext(BondPriceBean bondPriceBean) {
+                        bondPriceData.setValue(bondPriceBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        /*
+                         * 发生了错误，通知UI层
+                         */
+                        error.setValue("发生错误了");
+                    }
+                }));
     }
 
     /**

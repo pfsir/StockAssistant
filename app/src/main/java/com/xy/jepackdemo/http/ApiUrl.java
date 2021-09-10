@@ -37,6 +37,11 @@ public class ApiUrl {
     public static final String GET_JSL_RECENT_BOND = "data/cbnew/pre_list/";
 
     /**
+     * 当前可转债中位数等价格
+     */
+    public static final String GET_JSL_BOND_PRICE = "webapi/cb/index_quote/";
+
+    /**
      * 按条件筛选的
      */
     public static final String GET_JSL_FILTER_BOND = "data/cbnew/cb_list/";

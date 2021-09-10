@@ -22,7 +22,12 @@
     <string name="bond_premium_rate">溢价率</string>
     <string name="bond_yield_to_maturity">到期收益</string>
     <string name="bond_db_low">双低</string>
-
+    <string name="bond_average">平均价格：</string>
+    <string name="bond_media">中位数价格：</string>
+    <string name="bond_below_90">90元以下的个数：</string>
+    <string name="bond_90_100">90元-100元的个数：</string>
+    <string name="bond_100_110">100元-110元的个数：</string>
+    <string name="bond_110_120">110元-120元的个数：</string>
 
     <string name="stock_name">股票名称</string>
     <string name="stock_pe">PE/PB/PEV</string>
@@ -64,5 +69,6 @@
     <string name="hk_first_raise">首日涨幅</string>
 
     <string name="btc_fgi">近30天BTC价格/FGI（恐慌贪婪指数）</string>
+
 
 </resources>
