@@ -18,7 +18,7 @@ lib类部分代码来自https://github.com/KunMinX/Jetpack-MVVM-Best-Practice。
 基金部分：（数据来自蛋卷）  
 1.指基：钉大发车的指数基金  
 2.优选：钉大的主动优选组合  
-3.轮动：大小盘基金切换策略 
+3.轮动：大小盘基金切换策略  
 4.基金可以套利的部分  
 
 btc部分：（数据来自https://history.btc126.com/zhishu/）  
